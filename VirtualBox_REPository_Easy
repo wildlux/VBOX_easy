@@ -1,0 +1,30 @@
+import subprocess
+
+'''
+REPOSITORY
+Paste your string for customize your Repository!
+
+PROCESS:
+1) Take a string like below.
+'deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian <mydist> contrib' 
+
+2) Example of result of bash is "Codename:       plucky"
+3) replace "Codename:" with space
+
+replace the name with your codename and that'it
+
+"Codename:       plucky" 
+'''
+
+#Run command for codename of Linux for our repository
+BASH_NaME_DISTRO = subprocess.check_output(['lsb_release', '-c'], text=True)
+F = BASH_NOME_DISTRO.replace("Codename:", "").strip() 
+
+#EXample of repository of virtualbox
+Text= 'deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian <mydist> contrib' 
+x = Text.replace("<mydist>", F )
+
+print ("ITA / Installazione di virtualbox\nLa Tua distribuzione quindi è : "  ,F)
+print ("ENG / Installazione di virtualbox\nLa Tua distribuzione quindi è : "  ,F)
+
+print ("Incollaquanto segue: \nPaste this in your terminal\n"  , x,"\n")
